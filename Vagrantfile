@@ -22,8 +22,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |box|
 	box.vm.box = "ubuntu/trusty64"
 	box.vm.provision "docker"
 
-	# Disable synced folders (prevents an NFS error on "vagrant up")
-	box.vm.synced_folder ".", "/vagrant", disabled: true
+	box.vm.synced_folder ".", "/vagrant"
 
 	# workaround for disabled ipv4 forwarding on some win 10 installations
 	box.vm.provision "shell", run: "always", inline:
