@@ -4,8 +4,8 @@ Docker demo environment for experiments
 ## Requirements
 This demo requires the following software to be installed on your machine:
 
-* **Oracle VM Virtualbox **   
-Hypervisor, on which we'll run our VM containing Docker.
+* **Oracle VM Virtualbox**   
+Hypervisor, on which we'll run our VM containing Docker.  
 [https://www.virtualbox.org/wiki/Downloads](https://www.virtualbox.org/wiki/Downloads)
  
 * **Vagrant**  
