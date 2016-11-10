@@ -6,26 +6,32 @@ Vagrant.require_version ">= 1.6.0"
 VAGRANTFILE_API_VERSION = "2"
 
 # Create and boxure the VM(s)
-Vagrant.configure(VAGRANTFILE_API_VERSION) do |box|
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
 	# Assign a friendly name to this host VM
-	box.vm.hostname = "docker-host"
+	config.vm.hostname = "docker-host"
 
 	# Skip checking for an updated Vagrant box
-	box.vm.box_check_update = false
+	config.vm.box_check_update = false
 
 	# Always use Vagrant's default insecure key
-	box.ssh.insert_key = false
+	config.ssh.insert_key = false
+	
+	# network settings
+	config.vm.hostname = "docker-host"
+	config.vm.network "private_network", ip: "192.168.11.11"
+	config.vm.network :forwarded_port, guest: 80, host: 8000
 
 	# Spin up a "host box" for use with the Docker provider
 	# and then provision it with Docker
-	box.vm.box = "ubuntu/trusty64"
-	box.vm.provision "docker"
+	config.vm.box = "ubuntu/trusty64"
+	config.vm.provision "docker"
 
-	box.vm.synced_folder ".", "/vagrant"
-
+	# synched folder settings (currently disabled)
+	config.vm.synced_folder ".", "/vagrant", disabled: true
+	
 	# workaround for disabled ipv4 forwarding on some win 10 installations
-	box.vm.provision "shell", run: "always", inline:
+	config.vm.provision "shell", run: "always", inline:
 		<<-SCRIPT
 		echo "enabling ipv4 forwarding (net.ipv4.ip_forward)" 
 		sudo sysctl -wq net.ipv4.ip_forward=1
