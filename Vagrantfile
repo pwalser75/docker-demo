@@ -20,7 +20,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	# network settings
 	config.vm.hostname = "docker-host"
 	config.vm.network "private_network", ip: "192.168.11.11"
-	config.vm.network :forwarded_port, guest: 80, host: 8000
+	# config.vm.network :forwarded_port, guest: 80, host: 10080
+	# config.vm.network :forwarded_port, guest: 3306, host: 13306
 
 	# Spin up a "host box" for use with the Docker provider
 	# and then provision it with Docker

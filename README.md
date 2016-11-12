@@ -55,3 +55,9 @@ The docker container can now be stopped and started any time:
 To remove the container:
 
     docker rm nginx-test
+
+## MySQL on Docker
+
+To install and run MySQL as a docker container (providing the root password as an environment variable):
+
+    docker run --name mysql-test -e MYSQL_ROOT_PASSWORD=secret007 -p 3306:3306 -d mysql
