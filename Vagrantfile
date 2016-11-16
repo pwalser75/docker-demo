@@ -14,8 +14,17 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	# Skip checking for an updated Vagrant box
 	config.vm.box_check_update = false
 
+	# VM configuration for virtualbox (add other provider configs as needed)
+	config.vm.provider "virtualbox" do |vm|
+	  vm.memory = 2048
+	  vm.cpus = 2
+	end
+
 	# Always use Vagrant's default insecure key
 	config.ssh.insert_key = false
+	
+	# Provisioning script
+	config.vm.provision "shell", path: "provision.sh", privileged: true
 	
 	# network settings
 	config.vm.hostname = "docker-host"

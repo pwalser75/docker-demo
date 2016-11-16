@@ -35,7 +35,8 @@ As a simple example to check if your setup is working, we search, install and ru
 
     docker search nginx
     docker pull nginx
-    docker run -d --name nginx-test -p 80:80 nginx
+    docker run -d --name nginx-test -p 80:80 -p nginx
+	
 To check if your nginx instance called 'nginx-test' is running:
 
     docker ps
@@ -45,7 +46,7 @@ You can find out the IP address of the docker container on your docker host with
     docker inspect nginx-test | grep IPAddress
 
 On your local machine, you should now be able to access the welcome page of **NGINX** on 
-[http://192.168.11.11:8000](http://192.168.11.11:8000) (see `Vagrantfile`, where we configured the IP address and port forwarding)
+[http://192.168.11.11:80](http://192.168.11.11:80) (see `Vagrantfile`, where we configured the IP address and port forwarding)
 
 The docker container can now be stopped and started any time:
 
