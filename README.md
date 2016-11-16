@@ -62,3 +62,10 @@ To remove the container:
 To install and run MySQL as a docker container (providing the root password as an environment variable):
 
     docker run --name mysql-test -e MYSQL_ROOT_PASSWORD=secret007 -p 3306:3306 -d mysql
+	
+## JBoss Wildfly on Docker
+
+[https://hub.docker.com/r/jboss/wildfly/](Wildfly image on DockerHub - Documentation)
+
+    docker run -d --name wildfly-test -p 9990:9990 jboss/wildfly
+
