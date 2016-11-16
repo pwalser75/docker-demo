@@ -65,7 +65,7 @@ To install and run MySQL as a docker container (providing the root password as a
 	
 ## JBoss Wildfly on Docker
 
-[https://hub.docker.com/r/jboss/wildfly/](Wildfly image on DockerHub - Documentation)
+[Wildfly image on DockerHub - Documentation](https://hub.docker.com/r/jboss/wildfly/)
 
     docker run -d --name wildfly-test -p 9990:9990 jboss/wildfly
 
