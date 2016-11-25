@@ -35,7 +35,7 @@ As a simple example to check if your setup is working, we search, install and ru
 
     docker search nginx
     docker pull nginx
-    docker run -d --name nginx-test -p 80:80 -p nginx
+    docker run -d --name nginx-test -p 80:80 nginx
 	
 To check if your nginx instance called 'nginx-test' is running:
 
